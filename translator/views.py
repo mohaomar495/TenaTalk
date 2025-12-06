@@ -3,9 +3,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from dotenv import load_dotenv
 from google.cloud import speech
-from google.cloud import translate_v3 as translate
+from google.cloud import translate_v2 as translate
 from google.cloud import texttospeech
-#from asgireg.sync import async_to_sync
+from asgiref.sync import async_to_sync
 from transformers import VitsModel, AutoTokenizer
 
 import edge_tts
@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 try:
     speech_client = speech.SpeechClient()
     translate_client = translate.Client()
-    tts_client = texttospeech.TextToSpeech()
+    tts_client = texttospeech.TextToSpeechClient()
 
     project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
     location = os.getenv("GOOGLE_CLOUD_REGION", "us-central1")
@@ -45,29 +45,35 @@ def index(request):
 
 # Detect Language
 def detect_language(text):
+    if translate_client is None:
+        logger.warning("Translate client is None, defaulting to 'en'")
+        return "en"
     try:
         result = translate_client.detect_language(text)
         return result["language"]
     except Exception as e:
-        logger.error(f"Langua ge detection failed: {e}")
+        logger.error(f"Language detection failed: {e}")
     return "en"
 
 
 @csrf_exempt
 def translate_text(request):
     if request.method != "POST":
-        return JsonReponse({"Eror": "POST requuired"}, status=400)
+        return JsonResponse({"Error": "POST required"}, status=400)
 
-    text_contect = request.POST.get("text", "")
+    text_content = request.POST.get("text", "")
     target_lang = request.POST.get("target_lang", "en")
     audio = request.POST.get("with_audio", "false").lower() == "true"
 
-    if not text:
+    if not text_content:
         return JsonResponse({"Error": "Missing text content"}, status=400)
     
+    if translate_client is None:
+        return JsonResponse({"Error": "Translation service unavailable"}, status=503)
+
     # translate the text
     try:
-        response = translate_client.translate(text_content, target_language=target_language)
+        response = translate_client.translate(text_content, target_language=target_lang)
         translated_text = response["translatedText"]
     except Exception as e:
         logger.error(f"Translation failed: {e}")
@@ -151,8 +157,16 @@ def generate_tts(text, language, gender="NEUTRAL", speed=1.0):
 
     # Handle Oromo with Meta MMS
     if language in ["om", "om-ET"]:
-        logger.info(f"Generating Oromo TTS for: {text}")
-        return generate_oromo_tts(text)
+        try:
+            logger.info(f"Generating Oromo TTS for: {text}")
+            return generate_oromo_tts(text)
+        except Exception as e:
+            logger.error(f"Oromo TTS failed: {e}")
+            return None
+
+    if tts_client is None:
+        logger.error("Google TTS client is not initialized")
+        return None
 
     synth_input = texttospeech.SynthesisInput(text=text)
     
@@ -182,13 +196,16 @@ def generate_tts(text, language, gender="NEUTRAL", speed=1.0):
         speaking_rate=float(speed)
     )
     
-    tts_response = tts_client.synthesize_speech(
-        input=synth_input,
-        voice=voice,
-        audio_config=audio_cfg,
-    )
-    
-    return base64.b64encode(tts_response.audio_content).decode("utf-8")
+    try:
+        tts_response = tts_client.synthesize_speech(
+            input=synth_input,
+            voice=voice,
+            audio_config=audio_cfg,
+        )
+        return base64.b64encode(tts_response.audio_content).decode("utf-8")
+    except Exception as e:
+        logger.error(f"Google TTS failed: {e}")
+        return None
 
 
 @csrf_exempt
@@ -207,6 +224,8 @@ def text_to_speech(request):
     
     try:
         audio_b64 = generate_tts(text, language, gender, speed)
+        if audio_b64 is None:
+             return JsonResponse({"error": "Failed to generate audio"}, status=500)
         return JsonResponse({"audio_b64": audio_b64})
     except Exception as e:
         logger.error(f"TTS failed: {e}")
@@ -232,6 +251,9 @@ def upload_audio(request):
 
     if not b64:
         return JsonResponse({"error": "Missing audio"}, status=400)
+    
+    if speech_client is None:
+         return JsonResponse({"error": "Speech service unavailable"}, status=503)
 
     # Decode Base64 audio
     try:
@@ -269,6 +291,9 @@ def upload_audio(request):
     # ------------------------------
     # Translation
     # ------------------------------
+
+    if translate_client is None:
+        return JsonResponse({"error": "Translation service unavailable"}, status=503)
 
     try:
         translated = translate_client.translate(

@@ -1,0 +1,18 @@
+runtime: python310
+instance_class: F4_1G # Essential for Torch/Transformers to prevent OOM
+entrypoint: gunicorn -b :$PORT -t 120 TenaTalk.wsgi # 120s timeout for model loading
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "TenaTalk.settings"
+  # Transformers/HuggingFace needs a writable cache directory
+  HF_HOME: "/tmp" 
+  TRANSFORMERS_CACHE: "/tmp"
+  
+  # Credentials: Ensure this file is in the root directory when deploying
+  # GOOGLE_APPLICATION_CREDENTIALS: "tenatalk-45e0966e1e08.json" 
+
+handlers:
+  - url: /static
+    static_dir: staticfiles
+  - url: /.*
+    script: auto

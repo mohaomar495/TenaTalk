@@ -14,9 +14,9 @@ document.getElementById("recordBtn").onclick = async () => {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     mediaRecorder = new MediaRecorder(stream);
 
-    // setting upp on onstop 
+    // Set up the onstop handler BEFORE starting recording
     mediaRecorder.onstop = async () => {
-        // Getting the mime type from the MediaRecorder
+        // Get the actual mime type from the MediaRecorder
         const mimeType = mediaRecorder.mimeType || "audio/webm";
         const blob = new Blob(audioChunks, { type: mimeType });
         const reader = new FileReader();
@@ -216,4 +216,5 @@ async function handleListenToText() {
         listenBtn.innerHTML = "🔊 Listen";
     }
 }
+
 
