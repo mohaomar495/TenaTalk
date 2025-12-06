@@ -50,7 +50,7 @@ Designed for hackathons: fast, simple, and impressive.
 ---
 
 ## 📁 Project Structure
-
+```
 tenatalk/
 │
 ├── manage.py
@@ -70,7 +70,7 @@ tenatalk/
 └── static/
 ├── recorder.js
 └── style.css
-
+```
 ---
 
 ## 🔧 Installation
