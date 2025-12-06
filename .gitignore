@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+/staticfiles/
+media/
+
+# Environment variables
+.env
+
+# Google Cloud credentials
+*.json
+
+# MacOS
+.DS_Store
