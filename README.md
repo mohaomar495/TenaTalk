@@ -66,7 +66,10 @@ tenatalk/
 ├── views.py
 ├── urls.py
 ├── templates/
+| ├── translator/
 │ └── index.html
+| ├── slides/
+| └── Innovating With Google Cloud Hackathon Pitch Deck.pptx
 └── static/
 ├── recorder.js
 └── style.css
