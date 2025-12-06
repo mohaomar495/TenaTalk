@@ -1,6 +1,6 @@
-# TenaTalk — Hackathon Edition
+# TenaTalk — Translation
 
-A lightweight real-time speech translation system for African languages
+A lightweight real-time speech translation system for Ethiopian languages
 
 ---
 
