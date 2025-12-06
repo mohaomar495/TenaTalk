@@ -1,0 +1,11 @@
+Django
+python-dotenv
+google-cloud-speech
+google-cloud-translate
+google-cloud-texttospeech
+edge-tts
+transformers
+torch
+scipy
+numpy
+asgiref

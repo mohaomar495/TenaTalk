@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tenatalk",
+  "private_key_id": "45e0966e1e085678d4dc5fd36438e1c3a0118e81",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCZP5ugn4057H3H\nzW1ON76ihQ4Bdm9T13Y3pVidrczI+jf0WpzBFsXStir+lA9CFqtBTlLVJHMdyC74\nR1Y+wTq4G4nOSJ2Oi0h2Ep/KMxTLwlVbb7zM3aZrIi3TIhxDbrYH7Jkcr+eYc2ZX\n1t9wgppqgPKWdL0u+ZVdpbhl95YJV0oJfiYapdE3AFj2R9E8I80UZikNYU84kW1e\nmcr7Q6MOmlJXRKpdz/hwaizBcI/PtfkC2q7By5HWhZzoTAFutheA9NdJsWTinjrk\n/E8eYh0tPAeFeQCYBqhWzHszHou+Cd5DXYAYo0pONzJf/2ZSXYnI16RmkxtI2M64\nGgeaIJJ1AgMBAAECggEAAUmwTl+A4ZN79B2lFULxKm75UOhUo6z8HJgaYErZXXgC\n194aEqJVG8H1pwmJ/klv+37DwfBKOl4YDPSWhDT+ABWVKSNhlZTUkU9zQdD/k/3I\nV1ofSU50i1JwdaWD/MoVpAfoOn488UJJAiR3YLvsPchjIYIOI/Krf2u42ryDqYTr\nrfXGb5dSk8fQloLnpVp8F1YIdIvhsGqGGQEyu9TP1v2Q1gJ+fYksOEkEWQk4DMjg\nej8MCoG+1cXPHLEe38VJS/V5MQZt2WqAuKV/NjsQo5Mm+i5vjkugdYHSTIhJG+qt\nKuMu/k7oprKWDDHkcRvIgRWVUXuSZLo8FRcHUMfX4QKBgQDYmHMDSU423iZlycqY\n3lMbNB3vWRDsugnlz8NCZwplKXgEDSyCXVR05Ox8+uHWCO9dUnxbwaB1NLF968o1\neq2WJwqaWqX+0Ymk33sF7hQYxRvPnXkwFqhpwgUYNIZ987AwwRGiKebpVuPokOrA\nUevt8OMrnRGYCxKktM6MHgGI1QKBgQC1IOIMOEvJtftcpxbFNAltvzjd+0Zl149P\nEanqhrj86Xo80tSkGFhNEG+QYCZVX56gvqZ4ZMj98g808t666/DEouHq5MMtbjrA\n8rHPLwOXG+BIBRdLOgyqlvj68U6ppMyuhm7Iq7sekEHcGMhas0uOqGLpeblZRK/T\nLEOCFL2zIQKBgBIsgIIHFZv++ePSkcBP71M6BUT/CS+D0K7Kxwx8Tt/8IcjdPh3W\nLO7+AmXeOzLVXxhKgorEbW1INZhmP3pLR+NwdTBMaN8/v7fo1I7D0kXdzB6YjQGe\n9RSipgDI73wEBYWhvZQIxgpQMyFhf4ERnqVBcB5JuJ80VqUhUq9pGSHdAoGAOjGW\nbtanguc1G0+TwUg2v0vwuWFB/PaE1KKYNQGT7a4V1/Tk3NP1isz9CyXZKxTNolee\npI+9A9oBiMF/Tg8ADC1I6G8XRkFkHxnahvZT8PjD1l/MXB8KcsSOuhFNdLO+D1Sh\nw1dphyhSAKT1ui5g2DTBksHJCyVGWFKgXerMCAECgYA8lm45UoIJvcW4iOVKGoWL\nwYsEc+rHIxM6iaV1yAP0M8feBV/BGqWut6zkYY2FmyrbRmq5A9w+IvAKYXWIbcAU\nKDBnkikUwsZ58wVGMy/dAdPXNFIKdIZGh7hv2dZVI1SMbDLWJHnyDGtXqvpUiZv3\nNs3cIOgurPCiJCiPjXDl6w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "tenatalk@tenatalk.iam.gserviceaccount.com",
+  "client_id": "108775297910714513756",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tenatalk%40tenatalk.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
