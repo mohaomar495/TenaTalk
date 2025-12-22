@@ -66,6 +66,14 @@ h1 {
     background-clip: text;
 }
 
+/* Fallback for browsers that don't support background-clip */
+@supports not (background-clip: text) or not (-webkit-background-clip: text) {
+    h1 {
+        color: var(--primary-color);
+        background: none;
+    }
+}
+
 /* Tabs */
 .nav-tabs {
     border-bottom: 2px solid var(--border-color);
@@ -140,6 +148,11 @@ textarea.form-control {
     cursor: pointer;
 }
 
+.form-range:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
 .form-range::-webkit-slider-thumb {
     appearance: none;
     width: 20px;
@@ -155,6 +168,10 @@ textarea.form-control {
     box-shadow: 0 0 0 8px rgba(79, 70, 229, 0.1);
 }
 
+.form-range::-webkit-slider-thumb:focus {
+    box-shadow: 0 0 0 8px rgba(79, 70, 229, 0.2);
+}
+
 .form-range::-moz-range-thumb {
     width: 20px;
     height: 20px;
@@ -168,6 +185,10 @@ textarea.form-control {
 .form-range::-moz-range-thumb:hover {
     transform: scale(1.2);
     box-shadow: 0 0 0 8px rgba(79, 70, 229, 0.1);
+}
+
+.form-range::-moz-range-thumb:focus {
+    box-shadow: 0 0 0 8px rgba(79, 70, 229, 0.2);
 }
 
 /* Buttons */
@@ -413,7 +434,11 @@ html {
 }
 
 /* Focus visible for accessibility */
-*:focus-visible {
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
