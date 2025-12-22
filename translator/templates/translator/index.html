@@ -1,29 +1,39 @@
+{% extends "translator/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
+{% block title %}Translator - TenaTalk{% endblock %}
 
-<head>
-    <meta charset="utf-8">
-    <title>TenaTalk</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding: 20px
-        }
-    </style>
-</head>
+{% block extra_css %}
+<style>
+    .translator-header {
+        background: linear-gradient(135deg, #4a90e2 0%, #50c878 100%);
+        color: white;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+        border-radius: 15px;
+    }
+    
+    .tab-content {
+        animation: fadeInUp 0.5s ease-out;
+    }
+</style>
+{% endblock %}
 
-<body>
+{% block content %}
+<div class="container">
+    <div class="translator-header text-center animate-fade-in">
+        <h1 class="display-4 fw-bold mb-3">
+            <i class="fas fa-language"></i> TenaTalk Translator
+        </h1>
+        <p class="lead mb-0">Real-time speech and text translation for Ethiopian languages</p>
+    </div>
 
-    <div class="container">
-
-        <h1>TenaTalk — Translation</h1>
+    <div class="card p-4 animate-fade-in"  style="animation-delay: 0.2s;">
 
         <!-- Auto CSRF from Django -->
         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-	<!-- Tabs Navigations-->
+        <!-- Tabs Navigations-->
         <ul class="nav nav-tabs mb-4" id="translationTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="speech-tab" data-bs-toggle="tab" data-bs-target="#speech"
@@ -138,12 +148,10 @@
             </div>
 
         </div>
-
     </div>
+</div>
+{% endblock %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/app.js' %}"></script>
-
-</body>
-
-</html>
+{% block extra_js %}
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
