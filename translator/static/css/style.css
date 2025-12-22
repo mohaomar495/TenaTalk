@@ -154,6 +154,7 @@ textarea.form-control {
 }
 
 .form-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
@@ -173,6 +174,8 @@ textarea.form-control {
 }
 
 .form-range::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none;
     width: 20px;
     height: 20px;
     background: var(--primary-color);
