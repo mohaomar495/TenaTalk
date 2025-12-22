@@ -39,6 +39,14 @@ except Exception as e:
 
 
 # Homepage
+def home(request):
+    return render(request, "translator/home.html")
+
+# About page
+def about(request):
+    return render(request, "translator/about.html")
+
+# Translator page (formerly index)
 def index(request):
     return render(request, "translator/index.html")
 

@@ -1,0 +1,281 @@
+{% extends "translator/base.html" %}
+
+{% block title %}About TenaTalk{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #4a90e2 0%, #50c878 100%); color: white;">
+    <div class="container text-center">
+        <h1 class="display-3 fw-bold mb-3 animate-fade-in">About TenaTalk</h1>
+        <p class="lead animate-fade-in">
+            Empowering communication across Ethiopian languages with cutting-edge AI technology
+        </p>
+    </div>
+</section>
+
+<!-- Overview Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-4">Our Mission</h2>
+                <p class="lead text-muted mb-4">
+                    TenaTalk is dedicated to breaking down language barriers in Ethiopia and beyond.
+                    We believe that everyone deserves access to clear, accurate communication regardless
+                    of the language they speak.
+                </p>
+                <p class="text-muted">
+                    Our platform leverages Google Cloud's advanced AI technologies to provide real-time
+                    speech translation, helping healthcare providers, educators, businesses, and
+                    individuals communicate effectively across language boundaries.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-globe-africa" style="font-size: 12rem; color: #4a90e2; opacity: 0.2;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Stack -->
+<section class="py-5" style="background: #f8f9fa;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Technology Stack</h2>
+            <p class="lead text-muted">Built with cutting-edge technologies for optimal performance</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 p-4">
+                    <h4 class="mb-3">
+                        <i class="fas fa-server" style="color: #4a90e2;"></i> Backend
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Python 3.10+</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Django 5.x Framework</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Google Cloud Speech-to-Text API</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Google Cloud Text-to-Speech API</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Google Cloud Translate API</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Meta MMS TTS for Oromo</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Edge-TTS for Somali</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card h-100 p-4">
+                    <h4 class="mb-3">
+                        <i class="fas fa-desktop" style="color: #50c878;"></i> Frontend
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> HTML5 & CSS3</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Bootstrap 5</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> JavaScript (ES6+)</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Django Template Language</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Font Awesome Icons</li>
+                        <li class="mb-2"><i class="fas fa-check text-success"></i> Responsive Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features in Detail -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Key Features</h2>
+            <p class="lead text-muted">Everything you need for seamless translation</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-microphone" style="font-size: 3rem; color: #4a90e2;"></i>
+                    </div>
+                    <h5 class="mb-3">Browser Audio Recording</h5>
+                    <p class="text-muted">
+                        Record speech directly in your web browser without any additional software.
+                        High-quality audio capture for accurate translations.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-sync-alt" style="font-size: 3rem; color: #50c878;"></i>
+                    </div>
+                    <h5 class="mb-3">STT → Translate → TTS Pipeline</h5>
+                    <p class="text-muted">
+                        Seamless conversion from speech to text, translation, and back to speech
+                        in the target language.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-globe" style="font-size: 3rem; color: #ff6b6b;"></i>
+                    </div>
+                    <h5 class="mb-3">Multi-Language Support</h5>
+                    <p class="text-muted">
+                        Support for Amharic, Somali, Oromo, Tigrinya, and English with accurate
+                        translations.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-bolt" style="font-size: 3rem; color: #ffd93d;"></i>
+                    </div>
+                    <h5 class="mb-3">Fast Response Times</h5>
+                    <p class="text-muted">
+                        Lightning-fast translation powered by Google Cloud APIs. Get results
+                        in seconds.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-headphones" style="font-size: 3rem; color: #a29bfe;"></i>
+                    </div>
+                    <h5 class="mb-3">Instant Audio Playback</h5>
+                    <p class="text-muted">
+                        Listen to translated speech immediately with adjustable voice and speed
+                        settings.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-mobile-alt" style="font-size: 3rem; color: #fd79a8;"></i>
+                    </div>
+                    <h5 class="mb-3">Clean & Responsive UI</h5>
+                    <p class="text-muted">
+                        Modern interface built with Bootstrap, working seamlessly across all
+                        devices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Use Cases -->
+<section class="py-5" style="background: #f8f9fa;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Use Cases</h2>
+            <p class="lead text-muted">How TenaTalk makes a difference</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-hospital" style="font-size: 2.5rem; color: #4a90e2;"></i>
+                    </div>
+                    <h5 class="mb-3">Healthcare</h5>
+                    <p class="text-muted">
+                        Enable effective communication between healthcare providers and patients who
+                        speak different languages, improving diagnosis and treatment outcomes.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: #50c878;"></i>
+                    </div>
+                    <h5 class="mb-3">Education</h5>
+                    <p class="text-muted">
+                        Support students and teachers in multilingual classrooms, making education
+                        accessible to all regardless of their native language.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #ff6b6b;"></i>
+                    </div>
+                    <h5 class="mb-3">Business</h5>
+                    <p class="text-muted">
+                        Facilitate business communication across different regions, enabling
+                        commerce and collaboration in diverse linguistic environments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Roadmap -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Future Roadmap</h2>
+            <p class="lead text-muted">What's coming next for TenaTalk</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card p-4">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fas fa-clock text-primary me-2"></i>
+                            <strong>Conversation History:</strong> Save and review past translations
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-chart-line text-success me-2"></i>
+                            <strong>Admin Analytics Dashboard:</strong> Track usage and performance metrics
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-stethoscope text-info me-2"></i>
+                            <strong>Medical Triage AI:</strong> Specialized medical translation with Vertex AI
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-mobile text-warning me-2"></i>
+                            <strong>Offline Mobile App:</strong> Use TenaTalk without an internet connection
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-magic text-danger me-2"></i>
+                            <strong>Smart Language Detection:</strong> Automatic source language identification
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5">
+    <div class="container">
+        <div class="card p-5 text-center" style="background: linear-gradient(135deg, #4a90e2 0%, #50c878 100%); color: white; border-radius: 20px;">
+            <h2 class="display-5 fw-bold mb-3">Experience TenaTalk Today</h2>
+            <p class="lead mb-4">
+                See the power of real-time translation for yourself
+            </p>
+            <div>
+                <a href="{% url 'translator' %}" class="btn btn-light btn-lg" style="border-radius: 50px; padding: 1rem 2.5rem; font-weight: 600;">
+                    <i class="fas fa-play-circle"></i> Try TenaTalk Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
