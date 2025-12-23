@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TenaTalk - Text to Speech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .navbar-custom {
+            background-color: #667eea;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: white !important;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #ffd700 !important;
+        }
+
+        .card-custom {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">🌍 TenaTalk</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'text_translation' %}">Text Translation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'stt' %}">Speech to Text</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'tts' %}">Text to Speech</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="mb-4">🔊 Text to Speech</h1>
+
+        <!-- Auto CSRF from Django -->
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+        <div class="card card-custom">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="ttsText" class="form-label">Enter text to convert to speech</label>
+                    <textarea id="ttsText" class="form-control" rows="5"
+                        placeholder="Type or paste your text here..."></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ttsLanguage">Language</label>
+                    <select id="ttsLanguage" class="form-select">
+                        <option value="en">English</option>
+                        <option value="am">Amharic</option>
+                        <option value="om">Oromo</option>
+                        <option value="so">Somali</option>
+                    </select>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label>Voice Gender</label>
+                        <select id="tts_voice_gender" class="form-select">
+                            <option value="NEUTRAL">Neutral</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Speed: <span id="tts_speed_val">1.0</span>x</label>
+                        <input type="range" id="tts_voice_speed" class="form-range" min="0.25" max="4.0" step="0.25"
+                            value="1.0" oninput="document.getElementById('tts_speed_val').innerText = this.value">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button id="generateBtn" class="btn btn-primary">🔊 Generate Speech</button>
+                </div>
+
+                <div id="ttsResults" class="mt-4"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/tts.js' %}"></script>
+
+</body>
+
+</html>

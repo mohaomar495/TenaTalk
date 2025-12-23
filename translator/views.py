@@ -39,8 +39,20 @@ except Exception as e:
 
 
 # Homepage
-def index(request):
-    return render(request, "translator/index.html")
+def home(request):
+    return render(request, "translator/home.html")
+
+# Text Translation Page
+def text_translation(request):
+    return render(request, "translator/text-translation.html")
+
+# Speech to Text Page
+def stt(request):
+    return render(request, "translator/stt.html")
+
+# Text to Speech Page
+def tts(request):
+    return render(request, "translator/tts.html")
 
 
 # Detect Language
