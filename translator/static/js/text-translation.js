@@ -44,17 +44,8 @@ document.getElementById("translateBtn").onclick = async () => {
             currentTranslatedText = json.translated_text;
             currentTargetLang = targetLang;
 
-            // Check if language supports TTS
             // All languages (en, am, so, om) are now supported!
-            const unsupportedLangs = [];
-            const isSupported = !unsupportedLangs.includes(targetLang);
-
-            let listenBtnHtml = "";
-            if (isSupported) {
-                listenBtnHtml = `<button id="listenBtn" class="btn btn-success btn-sm">🔊 Listen</button>`;
-            } else {
-                listenBtnHtml = `<button class="btn btn-secondary btn-sm" disabled>🔇 TTS Unavailable</button>`;
-            }
+            const listenBtnHtml = `<button id="listenBtn" class="btn btn-success btn-sm">🔊 Listen</button>`;
 
             document.getElementById("textResults").innerHTML = `
                 <div class="card">
@@ -66,10 +57,8 @@ document.getElementById("translateBtn").onclick = async () => {
                 </div>
             `;
 
-            // Attach listen button handler if supported
-            if (isSupported) {
-                document.getElementById("listenBtn").onclick = handleListenToText;
-            }
+            // Attach listen button handler
+            document.getElementById("listenBtn").onclick = handleListenToText;
         }
     } catch (error) {
         document.getElementById("textResults").innerHTML = `
